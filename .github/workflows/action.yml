@@ -17,7 +17,8 @@ jobs:
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: ${{ secrets.MAIL_SUBJECT }}
-          body: file://result.html
+#          body: file://result.html
+          body: "test email"
           to: ${{ secrets.MAIL_TO }}
           from: GitHub Actions
           content_type: text/html
