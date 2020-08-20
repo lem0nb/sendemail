@@ -6,7 +6,7 @@ on:
   watch:
     types: started
 jobs:
-  bot:
+  Send Email:
     runs-on: ubuntu-latest
     steps:
       - name: 'Send mail'
