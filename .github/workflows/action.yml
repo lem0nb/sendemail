@@ -9,7 +9,9 @@ jobs:
   Run:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Send mail'
+      - name: 'Download Mail'
+        run: wget --no-check-certificate -O mail.html ${{ secrets.MAIL_DL_URL }}
+      - name: 'Send Mail'
         uses: dawidd6/action-send-mail@master
         with:
           server_address: ${{ secrets.MAIL_SERVER }}
@@ -17,8 +19,8 @@ jobs:
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: ${{ secrets.MAIL_SUBJECT }}
-#          body: file://result.html
-          body: ${{ secrets.MAIL_BODY }}
+          body: file://mail.html
+#          body: ${{ secrets.MAIL_BODY }}
           to: ${{ secrets.MAIL_TO }}
           from:  ${{ secrets.MAIL_FROM }}
           content_type: text/html
